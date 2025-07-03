@@ -107,6 +107,6 @@ Les routes sensibles sont protégées par des middlewares d’authentification
 Les accès sont vérifiés pour chaque action utilisateur
 
 Auteurs :
-Projet réalisé dans le cadre de l’épreuve ECF – Développement Web - Par Prevost Joshua
+Projet réalisé dans le cadre de l’épreuve ECF – Développement Web - Par Da Silva Pereira Nollan
 
-ECF---Projet-TrouvTout
+ECF---Projet-TrouvTout.
