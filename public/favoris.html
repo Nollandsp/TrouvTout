@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Mes favoris</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>TrouvTout</h1>
+      <nav>
+        <a href="./index.html">Annonces</a>
+        <a href="./index.html" id="navConnexion">Connexion</a>
+        <a href="./index.html" id="navInscription">Inscription</a>
+        <a href="./profil.html" id="navProfil" style="display: none">Profil</a>
+        <a href="./favoris.html" id="navFavoris" style="display: none"
+          >Mes favoris</a
+        >
+        <a href="#" id="logoutBtn" style="display: none">Déconnexion</a>
+      </nav>
+    </header>
+    <main>
+      <section id="favorisSection">
+        <h2>Mes favoris</h2>
+        <div id="favorisList"></div>
+      </section>
+    </main>
+    <script src="main.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        afficherFavoris();
+        document.getElementById("favorisSection").style.display = "block";
+      });
+    </script>
+  </body>
+</html>

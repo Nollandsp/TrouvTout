@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Mes favoris</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>TrouvTout</h1>
+      <nav>
+        <a href="./index.html">Annonces</a>
+        <a href="./index.html" id="navConnexion">Connexion</a>
+        <a href="./index.html" id="navInscription">Inscription</a>
+        <a href="./profil.html" id="navProfil" style="display: none">Profil</a>
+        <a href="./favoris.html" id="navFavoris" style="display: none"
+          >Mes favoris</a
+        >
+        <a href="#" id="logoutBtn" style="display: none">Déconnexion</a>
+      </nav>
+    </header>
+    <main>
+      <!-- Profil public + actions -->
+      <section id="profil" style="display: none">
+        <h2>Profil de <span id="profilPseudo"></span></h2>
+        <p><strong>Localité:</strong> <span id="profilLocalite"></span></p>
+        <p><strong>Téléphone:</strong> <span id="profilTelephone"></span></p>
+
+        <button id="deleteAccountBtn">Supprimer mon compte et annonces</button>
+      </section>
+    </main>
+    <script src="main.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // Récupère l'utilisateur connecté depuis le localStorage
+        let currentUser = null;
+        const userLS = localStorage.getItem("currentUser");
+        if (userLS) {
+          currentUser = JSON.parse(userLS);
+        }
+
+        // Affiche le profil si connecté
+        if (currentUser) {
+          document.getElementById("profilPseudo").textContent =
+            currentUser.pseudo || "-";
+          document.getElementById("profilLocalite").textContent =
+            currentUser.localité || "-";
+          document.getElementById("profilTelephone").textContent =
+            currentUser.téléphone || "-";
+          document.getElementById("profil").style.display = "block";
+        } else {
+          document.getElementById("profil").innerHTML =
+            "<p>Connecte-toi pour voir ton profil.</p>";
+          document.getElementById("profil").style.display = "block";
+        }
+      });
+    </script>
+  </body>
+</html>

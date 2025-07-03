@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TrouvTout - Petites annonces</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>TrouvTout</h1>
+      <nav>
+        <a href="#annonces">Annonces</a>
+        <a href="#connexion" id="navConnexion">Connexion</a>
+        <a href="#inscription" id="navInscription">Inscription</a>
+        <a href="./profil.html" id="navProfil" style="display: none">Profil</a>
+        <a href="./favoris.html" id="navFavoris" style="display: none"
+          >Mes favoris</a
+        >
+        <a href="#" id="logoutBtn" style="display: none">Déconnexion</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Annonces consultables par tous -->
+      <section id="annonces">
+        <h2>Dernières annonces</h2>
+        <div class="annonce-list" id="annonceList">
+          <!-- Annonces injectées ici -->
+        </div>
+        <!-- Formulaire création annonce (uniquement visible si connecté) -->
+        <div id="annonceFormContainer" style="display: none">
+          <h3>Créer une annonce</h3>
+          <form id="annonceForm">
+            <input type="hidden" id="annonceId" />
+            <label for="titre">Titre *</label>
+            <input type="text" id="titre" required />
+            <label for="description">Description *</label>
+            <textarea id="description" rows="3" required></textarea>
+            <label for="prix">Prix (€) *</label>
+            <input type="number" id="prix" required />
+            <label for="localiteAnnonce">Localité *</label>
+            <input type="text" id="localiteAnnonce" required />
+            <label for="category_id">Catégorie *</label>
+            <select id="category_id" required>
+              <option value="">Sélectionner</option>
+              <option value="1">Vélo</option>
+              <option value="2">Informatique</option>
+              <option value="3">Mobilier</option>
+              <option value="4">Vêtements</option>
+              <option value="5">Accessoires</option>
+              <option value="6">Véhicules</option>
+            </select>
+            <button type="submit">Enregistrer</button>
+            <button type="button" id="annulerModifBtn" style="display: none">
+              Annuler
+            </button>
+          </form>
+          <p id="annonceError" class="error-msg"></p>
+          <p id="annonceSuccess" class="success-msg"></p>
+        </div>
+      </section>
+
+      <!-- Connexion -->
+      <section id="connexion">
+        <h2>Connexion</h2>
+        <form id="loginForm">
+          <label for="loginEmail">Email *</label>
+          <input type="email" id="loginEmail" required />
+          <label for="loginPassword">Mot de passe *</label>
+          <input type="password" id="loginPassword" required />
+          <button type="submit">Se connecter</button>
+        </form>
+        <p id="loginError" class="error-msg"></p>
+        <p id="loginSuccess" class="success-msg"></p>
+      </section>
+
+      <!-- Inscription -->
+      <section id="inscription">
+        <h2>Inscription</h2>
+        <form id="registerForm">
+          <label for="pseudo">Pseudo *</label>
+          <input type="text" id="pseudo" required />
+
+          <label for="prenom">Prénom</label>
+          <input type="text" id="prenom" />
+
+          <label for="nom">Nom</label>
+          <input type="text" id="nom" />
+
+          <label for="telephone">Téléphone</label>
+          <input type="tel" id="telephone" />
+
+          <label for="localite">Localité</label>
+          <input type="text" id="localite" />
+
+          <label for="email">Email *</label>
+          <input type="email" id="email" required />
+
+          <label for="password">Mot de passe *</label>
+          <input type="password" id="password" required />
+
+          <button type="submit">S'inscrire</button>
+        </form>
+        <p id="registerError" class="error-msg"></p>
+        <p id="registerSuccess" class="success-msg"></p>
+        <p id="loginError" class="error-msg"></p>
+      </section>
+
+      <!-- Favoris -->
+      <section id="favorisSection" style="display: none">
+        <h2>Mes favoris</h2>
+        <div id="favorisList"></div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 TrouvTout - Petites annonces entre particuliers</p>
+    </footer>
+    <script src="/main.js"></script>
+  </body>
+</html>
