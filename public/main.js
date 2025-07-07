@@ -313,7 +313,7 @@ annonceForm.onsubmit = async (e) => {
     category_id,
   };
 
-  console.log("Données à envoyer:", annonceData); // Debug
+  console.log("Données à envoyer:", annonceData); 
 
   try {
     let response;
@@ -328,7 +328,6 @@ annonceForm.onsubmit = async (e) => {
         body: JSON.stringify(annonceData),
       });
     } else {
-      // Créer nouvelle
       response = await fetch("/api/annonces", {
         method: "POST",
         headers: {
@@ -339,7 +338,7 @@ annonceForm.onsubmit = async (e) => {
       });
     }
 
-    console.log("Statut réponse:", response.status); // Debug
+    console.log("Statut réponse:", response.status); 
 
     const result = await response.json();
     if (response.ok) {
@@ -462,8 +461,7 @@ document.addEventListener("DOMContentLoaded", () => {
   afficherAnnonces();
 });
 
-// Insertion des catégories par défaut (à faire une seule fois)
-// Ne pas inclure dans le code de production
+
 async function insererCategoriesParDefaut() {
   const categories = [
     "Vélo",
@@ -490,8 +488,7 @@ async function insererCategoriesParDefaut() {
   }
 }
 
-// Appeler cette fonction une seule fois pour peupler la base de données
-// Ne pas laisser cette ligne dans le code de production
+
 insererCategoriesParDefaut();
 
 window.addEventListener("hashchange", () => {

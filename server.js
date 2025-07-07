@@ -9,10 +9,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Logger simple en dev (optionnel)
-// const morgan = require("morgan");
-// app.use(morgan("dev"));
-
 // Routes API
 app.use("/api/annonces", require("./routes/annonce.routes.js"));
 app.use("/api/users", require("./routes/user.routes.js"));
@@ -43,5 +39,5 @@ app.use((err, req, res, next) => {
 // Lancement du serveur
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`✅ Serveur lancé sur http://localhost:${PORT}`);
+  console.log(`Serveur lancé sur http://localhost:${PORT}`);
 });
