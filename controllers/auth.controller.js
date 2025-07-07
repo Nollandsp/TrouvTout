@@ -1,7 +1,9 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+require("dotenv").config(); // Ajouté pour charger les variables d’environnement
 const { supabase } = require("../services/supabaseClient");
-const { JWT_SECRET } = process.env;
+
+const JWT_SECRET = process.env.JWT_SECRET; // Corrigé : pas de destructuring
 
 // Enregistrement d’un utilisateur
 exports.register = async (req, res) => {
@@ -77,7 +79,7 @@ exports.login = async (req, res) => {
       expiresIn: "24h",
     });
 
-    // **RENVOIE TOUS LES CHAMPS**
+    // Renvoie tous les champs
     res.status(200).json({
       message: "Connexion réussie.",
       token,

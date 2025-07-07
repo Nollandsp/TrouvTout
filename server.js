@@ -1,7 +1,15 @@
 const express = require("express");
 const path = require("path");
 const cors = require("cors");
-require("dotenv").config();
+require("dotenv").config(); // Charge les variables d’environnement
+
+// ✅ Vérification obligatoire de JWT_SECRET
+if (!process.env.JWT_SECRET) {
+  console.error(
+    "❌ ERREUR : La variable d'environnement JWT_SECRET est manquante !"
+  );
+  process.exit(1); // Arrête le serveur immédiatement
+}
 
 const app = express();
 
@@ -30,7 +38,7 @@ app.use((req, res) => {
   res.status(404).json({ message: "Route non trouvée" });
 });
 
-// Middleware d'erreur global (utile en prod)
+// Middleware d'erreur global
 app.use((err, req, res, next) => {
   console.error("Erreur serveur :", err.stack);
   res.status(500).json({ message: "Erreur serveur interne" });
@@ -39,5 +47,5 @@ app.use((err, req, res, next) => {
 // Lancement du serveur
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Serveur lancé sur http://localhost:${PORT}`);
+  console.log(`✅ Serveur lancé sur http://localhost:${PORT}`);
 });
